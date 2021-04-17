@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 
@@ -43,4 +43,4 @@ renderedPageRouter.get('*', (req, res) => {
   });
 });
 
-export default renderedPageRouter;
+export default renderedPageRouter; */
