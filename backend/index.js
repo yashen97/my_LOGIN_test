@@ -4,7 +4,14 @@ const cors = require('cors');
 require('dotenv').config();
 
 //database connection 
-
+mongoose.connect(process.env.MONGO_URI,{
+    useCreateIndex:true,
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useFindAndModify:false,
+})
+.then(()=>console.log(`[database] DB connected in ${process.env.NODE_ENV} mode`))
+.catch((err)=>console.log(`DB connection failed in ${process.env.NODE_ENV} mode \n`,err));
 //middleware
 
 // import routes
