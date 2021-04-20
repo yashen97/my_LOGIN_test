@@ -9,10 +9,10 @@ const {
 
 
 //TODO:Router signin
-router.post("/signup",signinController); //send the post req to signin page
+router.post("/signup",signupController); //send the post req to signin page
 
 //TODO:Router signup
-router.post("/signin",signupController);
+router.post("/signin",signinController);
 
 
 
