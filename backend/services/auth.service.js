@@ -19,7 +19,17 @@ const signupService=async (payload)=>{
 };
 
 //TODO Signin service
-const signinService= async (payload)=>{};
+const signinService= async (payload)=>{
+       const {email,password}=payload;
+      try {
+        const user= await User.findOne({email,password});
+        if (!user) throw new Error("User not found, Please signup");
+        return{result:user,success:true}
+      } catch (error) {
+          return{result:error.message,success:false};
+      }
+       
+};
 
 module.exports={
     signupService,

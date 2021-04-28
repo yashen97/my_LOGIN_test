@@ -20,13 +20,28 @@ const signupController = async (req,res) =>{
    } catch (error) {
       return res.status(500).json({result:error.message,
          success:false,
-         msg:"internal server error"
+         msg:"internal server error @signupcontroller"
       });
    }
 };
 
 //TODO :Signin controllers
-const signinController=(req,res)=>{}
+const signinController=async (req,res)=>{
+   try {
+      const{result,success}=await signinService(req.body);
+      if(!success) return res.status(400).json({result,
+         success,
+         msg:"User not found"
+      });
+      return res.status(200).json({result,
+         success, msg:"User has been signed up"
+      });
+   } catch (error) {
+      return res.status(500).json({ 
+        result:error.message,success:"fasle",msg:"Internal server error @signincontroller"
+      });
+   }
+}
 
 module.exports={
    signinController,
