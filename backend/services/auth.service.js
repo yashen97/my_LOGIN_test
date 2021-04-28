@@ -11,7 +11,7 @@ const signupService=async (payload)=>{
     try {
         const newUser= await user.save();
         if(!newUser) throw Error("User has not been saved succesfully");
-        return{result:newUser,sucuss:true};
+        return{result:newUser,success:true};
     } catch (error) {
         return{result:error.message,succuss:false};
     }
